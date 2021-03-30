@@ -26,20 +26,22 @@ pip3 install -U uiautomator2
 
 ③复制粘贴命令并按回车执行，每次执行1行
 
+```
 adb push atx-agent /data/local/tmp
 adb shell chmod 755 /data/local/tmp/atx-agent
 adb shell /data/local/tmp/atx-agent server -d
 adb shell /data/local/tmp/atx-agent server -d --stop
+```
 
 ##### 4.设备打开阅读界面，做好准备
 
 ##### 5.开启脚本，自动翻页
 电脑的命令行窗口，先后执行以下三行代码
-
+```
 git clone https://github.com/huowenxuan/auto_touch
 cd auto_touch
 python3 read_android.py
-
+```
 
 #### 下面是注释，待调试。
 

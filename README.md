@@ -31,16 +31,46 @@ python3 read_ios.py
 ```
 
 ### Android
-#### 工具
+### 工具
 * Python3、pip3
 
-#### 安装uiautomator
+### 电脑安装uiautomator2
 ```
 pip3 install -U uiautomator2
 ```
 
-#### 执行
-在读书APP中打开一本书，然后终端执行：
+### 执行
+
+##### 1.设备打开usb调试
+设置-关于手机，连续点击内核版本，开启开发者模式。开启后返回上层，进入其他设置-开发者选项，打开usb调试。
+
+##### 2.adb连接电脑和设备
+安装adb驱动；
+可使用数据线连接，也可通过wifi使用无线adb
+##### 3.通过电脑给手机安装atx-agent
+
+①下载附件 https://wwe.lanzous.com/i6xMekeyf5i
+
+②解压后打开位于当前文件夹的命令行窗口（即双击进入该文件夹，按住键盘shift+鼠标右键，打开命令行窗口）
+
+③复制粘贴命令并按回车执行，每次执行1行
+
+adb push atx-agent /data/local/tmp
+adb shell chmod 755 /data/local/tmp/atx-agent
+adb shell /data/local/tmp/atx-agent server -d
+adb shell /data/local/tmp/atx-agent server -d --stop
+
+##### 4.设备打开阅读界面，做好准备
+
+##### 5.开启脚本，自动翻页
+电脑的命令行窗口，先后执行以下三行代码
+
+git clone https://github.com/huowenxuan/auto_touch
+cd auto_touch
+python3 read_android.py
+
+
+#### 下面是注释，待调试。
 
 ```
 git clone https://github.com/huowenxuan/auto_touch
